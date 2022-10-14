@@ -60,7 +60,7 @@ function App() {
 
    
 
-      if (hand.length > 0) {
+	  if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
           fp.Gestures.VictoryGesture,
           fp.Gestures.ThumbsUpGesture,
@@ -71,8 +71,9 @@ function App() {
           console.log(gesture.gestures);
 
           const confidence = gesture.gestures.map(
-            (prediction) => prediction.confidence
+            (prediction) => prediction.score
           );
+		
           const maxConfidence = confidence.indexOf(
             Math.max.apply(null, confidence)
           );
